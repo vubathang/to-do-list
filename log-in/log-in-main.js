@@ -24,7 +24,7 @@ const changeType = function() {
 const username = document.getElementById('user')
 const password = document.getElementById('pass')
 const logBtn = document.querySelector('.form-submit')
-
+const createUser = document.querySelector('#createUser')
 // const checkUser = function() {
 //   const myUsername = username.value
 //   const myPassword = password.value
@@ -36,8 +36,12 @@ const logBtn = document.querySelector('.form-submit')
 
 // Login
 const logIn = function() {
-  console.log('ok');
   window.location.href="../index.html"
 }
 
 logBtn.addEventListener('click', logIn)
+
+// createUser
+createUser.addEventListener('click', function() {
+  window.location.href="../sign-up/sign-up.html"
+})
