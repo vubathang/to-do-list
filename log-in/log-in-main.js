@@ -19,27 +19,28 @@ const changeType = function() {
   }
 }
 
-// Save data by JSON
 
-const username = document.getElementById('user')
-const password = document.getElementById('pass')
-const logBtn = document.querySelector('.form-submit')
-const createUser = document.querySelector('#createUser')
-// const checkUser = function() {
-//   const myUsername = username.value
-//   const myPassword = password.value
-//   const user = JSON.stringify({'name':myUsername, 'password':myPassword})
-//   localStorage.setItem(`User${localStorage.length}`, user)
-// }
+let logBtn = document.querySelector('.form-submit')
+let createUser = document.querySelector('#createUser')
 
-// logBtn.addEventListener('click', checkUser)
-
-// Login
-const logIn = function() {
-  window.location.href="../index.html"
+function checkUser() {
+  let username = document.getElementById('user').value
+  let password = document.getElementById('pass').value
+  let user = localStorage.getItem(username)
+  let data  = JSON.parse(user)
+  if(user == null) {
+    alert("Vui lòng nhập username password")
+  }
+  else if(username == data.username && password == data.password) {
+    window.location.href="../index.html"
+  }
+  else {
+    alert("Vui lòng nhập username password")
+  }
 }
 
-logBtn.addEventListener('click', logIn)
+
+logBtn.addEventListener('click', checkUser)
 
 // createUser
 createUser.addEventListener('click', function() {
